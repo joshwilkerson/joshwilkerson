@@ -1,0 +1,26 @@
+.backBtn {
+  color:$darkGray;
+  text-decoration: none;
+  height: 24px;
+  opacity: 0.5;
+  position: relative;
+  margin:0 0 20px 0;
+  padding:0;
+  display: inline-block;
+  transition:all linear .2s;
+
+  svg {
+    fill: $darkGray;
+    top:7px;
+    left:-4px;
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    width: 20px;
+    margin-right:-4px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+} // .backBtn

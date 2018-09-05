@@ -1,0 +1,54 @@
+.btn {
+  $borderStart: 2px;
+  $borderWidthStart: ($borderStart / 2);
+  $borderEnd: 8px;
+  $borderWidthEnd: ($borderEnd / 2);
+  $borderRadius: 6px;
+
+  background:#fff;
+  color:$primary;
+  font-weight: 400;
+  padding:12px 15px;
+  margin:15px 0;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: $borderRadius;
+  font-weight: 600;
+  font-size: .85em;
+  border:2px solid $primary;
+  position: relative;
+  transition:all ease .2s;
+
+  svg {
+    fill:$primary;
+  }
+
+  &:after {
+    content:'';
+    position: absolute;
+    top:-#{$borderStart};
+    left:-#{$borderStart};
+    box-sizing: content-box;
+    border:#{$borderWidthStart} solid rgba($primary, 0);
+    border-radius: $borderRadius;
+    display: block;
+    width: calc(100% + #{$borderStart});
+    height: calc(100% + #{$borderStart});
+    z-index: 100;
+    transition:all ease-out .05s .1s;
+  }
+
+  &:hover {
+    border-color:rgba($primary, .5);
+    color:rgba($primary, .9);
+
+    &:after {
+      border:#{$borderWidthEnd} solid rgba($primary, .075);
+      border-radius: ($borderRadius * 1.8);
+      top:-#{$borderEnd};
+      left:-#{$borderEnd};
+      width: calc(100% + #{$borderEnd});
+      height: calc(100% + #{$borderEnd});
+    }
+  }
+} // .btn

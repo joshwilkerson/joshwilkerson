@@ -1,0 +1,187 @@
+#sidebar {
+  width: 100%;
+  height: $sidebarFixedHeight;
+  position: fixed;
+  display: block;
+  top:0;
+  left:0;
+  background: linear-gradient(45deg, $primary 0%, lighten($primary, 40%) 100%);
+  transition:all linear .1s;
+  z-index: 500;
+  border-bottom:1px solid darken($primary, .5%);
+
+  @include breakpoint(narrow) {
+    width: $sidebarWidth;
+    height: 100vh;
+    transition:all linear .25s;
+    z-index: 1;
+    border-bottom: none;
+  }
+
+  .bg {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    background-position: 55% 56% !important;
+    opacity:.1;
+    transition:all linear .2s;
+    z-index: 100;
+
+    @include breakpoint(narrow) {
+      opacity: .2;
+      background-position: center bottom !important;
+    }
+  } // .bg
+
+  .altTitle {
+		position: absolute;
+    top:0;
+    color:#fff;
+		left:20px;
+		z-index: 100;
+		font-weight: 300;
+		text-decoration: none;
+		font-size: 24px;
+    line-height: 60px;
+    z-index: 200;
+    transition: all .2s ease, opacity .3s ease .1s;
+    opacity: 1;
+    margin: 0;
+
+		&:hover {
+			color:rgba(#fff, 0.75);
+		}
+
+    @include breakpoint(narrow) {
+      top:20px;
+      left: 20px;
+      font-size:2vw;
+    }
+
+    @include breakpoint(super) {
+      font-size: 1.8em;
+    }
+	} // .altTitle
+
+  .contact {
+    display: block;
+    position: absolute;
+    top:19px;
+    right:18px;
+    height: 26px;
+    line-height: 26px;
+    z-index: 200;
+    text-decoration: none;
+    color:#fff;
+    font-size: .9em;
+    font-weight: 400;
+    transition: all .2s ease, opacity .3s ease .1s;
+    opacity: 1;
+
+    @include breakpoint(narrow) {
+      display: none;
+    }
+
+    svg {
+      width: 17px;
+      height: 100%;
+      position: relative;
+      top:50%;
+      transform:translateY(-50%);
+      float: left;
+      margin:-1px 6px 0 0;
+    }
+  } // .contact
+
+  .socialLinks {
+		position: absolute;
+		z-index: 200;
+		left:23px;
+		transition: all .2s ease, opacity .3s ease .1s;
+    display: none;
+
+		a {
+			display: block;
+			float: left;
+			width: 2vw;
+			height: 2vw;
+      max-width: 28px;
+      max-height: 28px;
+			margin:0 1.5vw 0 0;
+			transition:all linear .2s;
+
+			svg {
+				max-width: 100%;
+				display: block;
+				transition:all linear .2s;
+			}
+
+			&:hover {
+				opacity: .5;
+			}
+		} // a
+
+		@include breakpoint(narrow) {
+			display: block;
+      opacity: 1;
+      top: 6.5vw;
+		}
+
+    @include breakpoint(desktop) {
+      top: 5.8vw;
+    }
+
+    @include breakpoint(wide) {
+      top: 5vw;
+    }
+
+    @include breakpoint(super) {
+      top: 74px;
+    }
+	} // .socialLinks
+
+
+  // expanded view
+  &.expanded {
+    width: 100%;
+  	height: $sidebarFeaturedFixedHeight;
+    border-bottom:1px solid transparent;
+
+    @include breakpoint(narrow) {
+      width: $sidebarFeaturedWidth;
+      height: 100vh;
+    }
+
+    .bg {
+      background-position: left -1vh;
+      opacity: .9;
+
+      @include breakpoint(narrow) {
+        background-position: 56% -1%;
+      }
+    }
+
+    .altTitle {
+      top: -100px;
+      opacity: 0;
+
+      @include breakpoint(narrow) {
+        top: 20px;
+        left: -300px;
+      }
+    }
+
+    .contact {
+      top: -100px;
+      opacity: 0;
+    }
+
+    .socialLinks {
+      left: -50vw;
+      opacity: 0;
+    }
+  } // .expanded
+} // #sidebar

@@ -1,0 +1,74 @@
+.details {
+  padding:60px 0 10px 0;
+  display: block;
+  width: 100%;
+
+  @include breakpoint(narrow) {
+    padding:70px 50px 50px 50px;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size:1.6em;
+    line-height:1.2em;
+    margin:0 0 20px 0;
+    padding:0 0 5px 0;
+    border-bottom:1px solid $lightGray;
+
+    @include breakpoint(narrow) {
+      font-size: 1.75em;
+    }
+
+    @include breakpoint(desktop) {
+      font-size: 1.8em;
+    }
+
+    @include breakpoint(wide) {
+      font-size: 2em;
+    }
+  } // h1
+
+  p {
+    margin:0;
+    line-height: 1.15em;
+  }
+
+  strong {
+    font-weight: 600;
+    font-size: .8em;
+    padding-top:15px;
+    display: inline-block;
+  }
+
+  h1 + p strong {
+    padding:0;
+  }
+
+  .btn {
+    margin:20px 0;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+    border:1px solid $lightGray;
+  }
+
+  blockquote {
+    padding: 0;
+    margin: 0;
+
+    img {
+      border: none;
+    }
+  }
+
+  p + img {
+	  margin-top:30px;
+  }
+
+  .gatsby-resp-image-wrapper {
+    margin: 20px 0;
+  }
+
+} // .details

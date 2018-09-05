@@ -1,0 +1,48 @@
+// colors
+$primary: #0288d1;
+$darkGray: #555;
+$gray: lighten($darkGray, 40%);
+$lightGray: lighten($darkGray, 55%);
+
+
+
+// layout elements
+$sidebarWidth: 25%;
+$sidebarFeaturedWidth: 60%;
+
+$sidebarFixedHeight: 60px;
+$sidebarFeaturedFixedHeight: 50vw;
+
+$contentWidth: calc(100% - #{$sidebarWidth});
+$contentFeaturedWidth: calc(100% - #{$sidebarFeaturedWidth});
+
+
+
+// fonts
+$baseFont: 'Work Sans', sans-serif;
+
+@mixin font($arg) {
+  font-family:$arg, $baseFont;
+  font-weight: normal;
+}
+
+
+
+// media queries
+$breakpoints: (
+  super: "1401px",
+  wide: "1400px",
+  desktop: "1100px",
+  narrow: "920px",
+  mobile-lg: "650px",
+);
+
+@function get-bp($arg) {
+  @return map-get($breakpoints, $arg);
+}
+
+@mixin breakpoint($bp) {
+  @media only screen and (min-width: #{get-bp($bp)}) {
+    @content;
+  }
+}

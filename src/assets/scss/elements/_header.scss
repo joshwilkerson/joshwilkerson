@@ -1,0 +1,48 @@
+header {
+  display: block;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 200;
+
+  nav {
+    float: right;
+    margin:16px 20px 0 0;
+    padding:8px 0 10px 0;
+    background:rgba(#fff, 0.5);
+    border-radius: 4px;
+    display: none;
+
+    @include breakpoint(narrow){
+      display: block;
+    }
+
+    a {
+      color:$gray;
+      font-weight: 600;
+      font-size: .7em;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      position: relative;
+      padding:0 8px;
+      transition:all linear .2s;
+
+      &:first-child:after {
+        content:'';
+        position: absolute;
+        top:-5%;
+        right:-3px;
+        height: 110%;
+        width: 1px;
+        background:rgba($darkGray, .5);
+      }
+
+      &:hover,
+      &.selected {
+        color:$primary;
+      }
+    } // a
+  }  // nav
+} // header
