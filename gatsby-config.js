@@ -4,7 +4,7 @@ module.exports = {
     author: 'Josh Wilkerson',
     description: 'Josh Wilkerson - Front-End Developer & web designer from Franklin, TN'
   },
-  pathPrefix: '/',
+  pathPrefix: '/joshwilkerson',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
