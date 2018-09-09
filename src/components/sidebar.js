@@ -1,22 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Icon from './icon'
-
 import portrait from '../assets/images/portrait-jw.jpg'
 
 class Sidebar extends React.Component {
-  renderIntroLink() {
-    if(this.props.currentRoute === "/") {
-      return <h2 className="altTitle">Josh Wilkerson</h2>
-    } else {
-      return <Link to="/" className="altTitle">Josh Wilkerson</Link>
-    }
-  }
-
   render() {
     return (
-      <aside id="sidebar" className={this.props.sidebarClass}>
-        {this.renderIntroLink()}
+      <aside id="sidebar">
+        {this.props.currentRoute === "/" ? (
+          <h2 className="altTitle">Josh Wilkerson</h2>
+        ) : (
+          <Link to="/" className="altTitle">Josh Wilkerson</Link>
+        )}
+        
         <a className="contact" href="mailto:josh@joshwilkerson.com">Contact</a>
 
         <div className="socialLinks">

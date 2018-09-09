@@ -1,21 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Header from '../components/header'
+import Sidebar from '../components/sidebar'
 
 import IconSprite from '../assets/icons.svg'
 import '../assets/scss/compile.scss'
 
-import Header from '../components/header'
-import Sidebar from '../components/sidebar'
-
 class Template extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      sidebarClass: 'default',
-      socialLinksPanel: 'hidden'
-    }
-  }
-
+  
   render() {
     const { children, location, data } = this.props
 
@@ -24,7 +16,7 @@ class Template extends React.Component {
         <IconSprite />
         <Header currentRoute={location.pathname} />
         <div className="page">
-          <Sidebar currentRoute={location.pathname} {...this.state} />
+          <Sidebar currentRoute={location.pathname} />
           {children()}
         </div>
       </div>
