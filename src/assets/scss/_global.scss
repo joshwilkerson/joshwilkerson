@@ -34,6 +34,7 @@ p {
     color:$primary;
     position: relative;
     z-index: 2;
+		cursor: pointer !important;
 
     &:hover {
       text-decoration: none;

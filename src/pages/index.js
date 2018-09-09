@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import Scroll from 'react-scrollchor'
+import ScrollLink from 'react-scrollchor'
 import Icon from '../components/icon'
 import SocialLinksPanel from '../components/social-links-panel'
 import Thumbnails from '../components/thumbnails.js'
@@ -9,10 +9,21 @@ import resume from '../assets/josh-wilkerson-resume.pdf'
 
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.toggleSocialLinks = this.toggleSocialLinks.bind(this)
+
+    this.state = {
+      socialLinks: false
+    }
+  }
 
   toggleSocialLinks() {
-    this.setState({
-        socialLinksPanel: 'active'
+    this.setState((prevState) => {
+      return {
+        socialLinks: !prevState.socialLinks
+      }
     })
   }
 
@@ -37,12 +48,12 @@ class Home extends React.Component {
 
             <p>Hello! I'm Josh Wilkerson, a front-end web developer from Franklin, TN. Using over a decade of experience in art and graphic design combined with my technical expertise in modern web development, I create elegant, user-friendly web experiences that are as functional as they are beautiful.</p>
 
-            <p>Take a look at my <Scroll to="#featured" animate={{duration: 200}}>featured work</Scroll> below or check out my <a href="javascript:void(0);" onClick={this.toggleSocialLinks}>social channels</a>.</p>
+            <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
 
             <a href={resume} className="btn" target="_blank">Download Resume</a>
           </div>
 
-          <SocialLinksPanel />
+          <SocialLinksPanel showLinks={this.state.socialLinks} toggleSocialLinks={this.toggleSocialLinks} />
         </section>
 
         <section id="featured">

@@ -2,11 +2,12 @@ import React from 'react'
 import Icon from './icon'
 
 class SocialLinksPanel extends React.Component {
+
   render() {
     return (
-      <div className={`socialLinksPanel ${this.props.socialLinksPanel}`}>
+      <div className={`socialLinksPanel ${this.props.showLinks && 'active'}`}>
       	<div className="inner">
-      		<a href="#" className="closeBtn" id="socialClose"></a>
+      		<a onClick={this.props.toggleSocialLinks} className="closeBtn"></a>
 
       		<a href="https://github.com/joshwilkerson">
       			<Icon name="github" /> Github
