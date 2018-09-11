@@ -23,16 +23,10 @@ class Sidebar extends React.Component {
           onClick={this.props.toggleSidebar}
           style={{
             position: 'absolute',
-            bottom: '20px',
+            top: 'calc(100vh - 30px)',
             left: '20px',
             zIndex: '1000',
-            fontSize: '12px',
-            outline: 'none',
-            border: 'none',
-            background: '#dadada',
-            color: '#111',
-            padding: '6px',
-            borderRadius: '2px'
+            fontSize: '10px'
           }}
         >
           Toggle Sidebar

@@ -27,6 +27,7 @@ class Template extends React.Component {
 
   render() {
     const { children, location, data } = this.props
+    const toggleSidebar = { toggleSidebar: this.toggleSidebar }
 
     return (
       <div>
@@ -38,7 +39,7 @@ class Template extends React.Component {
             isExpanded={this.state.sidebarExpanded}
             toggleSidebar={this.toggleSidebar}
           />
-          {children({...this.props, ...this.toggleSidebar})}
+        {children({...this.props, ...toggleSidebar})}
         </div>
       </div>
     )
@@ -46,7 +47,7 @@ class Template extends React.Component {
 }
 
 Template.propTypes = {
-    children: React.PropTypes.func
+  children: React.PropTypes.func
 }
 
 export default Template

@@ -54,7 +54,21 @@ class Home extends React.Component {
             <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
 
             <a href={resume} className="btn" target="_blank">Download Resume</a>
-            <a onClick={this.toggleSidebar} className="btn">Toggle Sidebar</a>
+            <div
+              style={{
+                display: 'block',
+                marginTop: '20px'
+              }}
+              className="testing"
+            >
+
+            <button
+              onClick={this.props.toggleSidebar}
+              style={{ fontSize: '11px' }}
+            >
+              Toggle Sidebar
+            </button>
+            </div>
           </div>
 
           <SocialLinksPanel showLinks={this.state.socialLinks} toggleSocialLinks={this.toggleSocialLinks} />

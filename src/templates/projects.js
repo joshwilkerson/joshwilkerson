@@ -3,8 +3,19 @@ import Helmet from 'react-helmet'
 import BackLink from '../components/back-link'
 
 class ProjectsTemplate extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-  
+  componentDidMount() {
+    this.setState(() => {
+      return {
+        sidebarExpanded: false
+      }
+    })
+  }
+
+
   render() {
     const project = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
