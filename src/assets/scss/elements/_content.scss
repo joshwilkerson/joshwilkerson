@@ -1,6 +1,6 @@
 #content {
   width: 100%;
-  padding: 30px 8vw;
+  padding: calc(#{$sidebarFixedHeight} + 10px) 8vw 30px 8vw;
   background:#fff;
 	transition:all linear .3s;
 	position: relative;
@@ -48,9 +48,11 @@
 #sidebar.expanded {
   & + #content {
     width: 100%;
+    padding-top: calc(#{$sidebarFeaturedFixedHeight} + 10px);
 
     @include breakpoint(narrow) {
       width: $contentFeaturedWidth;
+      padding-top: 0;
     }
 
     .socialLinksPanel {

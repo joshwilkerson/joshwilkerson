@@ -152,15 +152,15 @@
 
     @include breakpoint(narrow) {
       width: $sidebarFeaturedWidth;
-      height: 100vh;
+      height: 101vh;
     }
 
     .bg {
-      background-position: left -1vh;
+      background-position: left -2vh !important;
       opacity: .9;
 
       @include breakpoint(narrow) {
-        background-position: 56% -1%;
+        background-position: 56% -1% !important;
       }
     }
 
