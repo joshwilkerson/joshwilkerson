@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import ScrollLink from 'react-scrollchor'
+import VisibilitySensor from 'react-visibility-sensor'
 import Icon from '../components/icon'
 import SocialLinksPanel from '../components/social-links-panel'
 import Thumbnails from '../components/thumbnails.js'
@@ -27,10 +28,12 @@ class Home extends React.Component {
     })
   }
 
+
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = this.props.data.site.siteMetadata.description
     const posts = this.props.data.allMarkdownRemark.edges
+
 
     return (
       <div id="content">
@@ -51,10 +54,12 @@ class Home extends React.Component {
             <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
 
             <a href={resume} className="btn" target="_blank">Download Resume</a>
+            <a onClick={this.toggleSidebar} className="btn">Toggle Sidebar</a>
           </div>
 
           <SocialLinksPanel showLinks={this.state.socialLinks} toggleSocialLinks={this.toggleSocialLinks} />
         </section>
+
 
         <section id="featured">
           <h2>Featured Work</h2>

@@ -4,16 +4,39 @@ import Icon from './icon'
 import portrait from '../assets/images/portrait-jw.jpg'
 
 class Sidebar extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
-      <aside id="sidebar">
+      <aside id="sidebar" className={this.props.isExpanded ? 'expanded' : 'default'}>
         {this.props.currentRoute === "/" ? (
           <h2 className="altTitle">Josh Wilkerson</h2>
         ) : (
           <Link to="/" className="altTitle">Josh Wilkerson</Link>
         )}
-        
+
         <a className="contact" href="mailto:josh@joshwilkerson.com">Contact</a>
+
+        <button
+          onClick={this.props.toggleSidebar}
+          style={{
+            position: 'absolute',
+            bottom: '20px',
+            left: '20px',
+            zIndex: '1000',
+            fontSize: '12px',
+            outline: 'none',
+            border: 'none',
+            background: '#dadada',
+            color: '#111',
+            padding: '6px',
+            borderRadius: '2px'
+          }}
+        >
+          Toggle Sidebar
+        </button>
 
         <div className="socialLinks">
           <a href="https://github.com/joshwilkerson">

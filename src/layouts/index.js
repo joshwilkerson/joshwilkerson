@@ -7,7 +7,24 @@ import IconSprite from '../assets/icons.svg'
 import '../assets/scss/compile.scss'
 
 class Template extends React.Component {
-  
+  constructor(props){
+    super(props)
+
+    this.toggleSidebar = this.toggleSidebar.bind(this)
+
+    this.state = {
+      sidebarExpanded: true
+    }
+  }
+
+  toggleSidebar() {
+    this.setState((prevState) => {
+      return {
+        sidebarExpanded: !prevState.sidebarExpanded
+      }
+    })
+  }
+
   render() {
     const { children, location, data } = this.props
 
@@ -16,8 +33,12 @@ class Template extends React.Component {
         <IconSprite />
         <Header currentRoute={location.pathname} />
         <div className="page">
-          <Sidebar currentRoute={location.pathname} />
-          {children()}
+          <Sidebar
+            currentRoute={location.pathname}
+            isExpanded={this.state.sidebarExpanded}
+            toggleSidebar={this.toggleSidebar}
+          />
+          {children({...this.props, ...this.toggleSidebar})}
         </div>
       </div>
     )
