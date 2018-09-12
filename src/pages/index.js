@@ -1,12 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import ScrollLink from 'react-scrollchor'
-import VisibilitySensor from 'react-visibility-sensor'
 import Icon from '../components/icon'
 import SocialLinksPanel from '../components/social-links-panel'
 import Thumbnails from '../components/thumbnails.js'
-import resume from '../assets/josh-wilkerson-resume.pdf'
+import IntroText from '../components/intro-text.js'
 
 
 class Home extends React.Component {
@@ -16,14 +14,14 @@ class Home extends React.Component {
     this.toggleSocialLinks = this.toggleSocialLinks.bind(this)
 
     this.state = {
-      socialLinks: false
+      displaySocialLinksPanel: false
     }
   }
 
   toggleSocialLinks() {
     this.setState((prevState) => {
       return {
-        socialLinks: !prevState.socialLinks
+        displaySocialLinksPanel: !prevState.displaySocialLinksPanel
       }
     })
   }
@@ -34,7 +32,6 @@ class Home extends React.Component {
     const siteDescription = this.props.data.site.siteMetadata.description
     const posts = this.props.data.allMarkdownRemark.edges
 
-
     return (
       <div id="content">
         <Helmet>
@@ -43,35 +40,15 @@ class Home extends React.Component {
         </Helmet>
 
         <section id="intro">
-          <div className="intro--content">
-            <div className="title">
-              <h1>Josh Wilkerson</h1>
-              <h2>Front-End Developer</h2>
-            </div>
+          <IntroText
+            toggleSocialLinks={this.toggleSocialLinks}
+            toggleSidebar={this.props.toggleSidebar}
+          />
 
-            <p>Hello! I'm Josh Wilkerson, a front-end web developer from Franklin, TN. Using over a decade of experience in art and graphic design combined with my technical expertise in modern web development, I create elegant, user-friendly web experiences that are as functional as they are beautiful.</p>
-
-            <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
-
-            <a href={resume} className="btn" target="_blank">Download Resume</a>
-            <div
-              style={{
-                display: 'block',
-                marginTop: '20px'
-              }}
-              className="testing"
-            >
-
-            <button
-              onClick={this.props.toggleSidebar}
-              style={{ fontSize: '11px' }}
-            >
-              Toggle Sidebar
-            </button>
-            </div>
-          </div>
-
-          <SocialLinksPanel showLinks={this.state.socialLinks} toggleSocialLinks={this.toggleSocialLinks} />
+          <SocialLinksPanel
+            displaySocialLinksPanel={this.state.displaySocialLinksPanel} 
+            toggleSocialLinks={this.toggleSocialLinks}
+          />
         </section>
 
 

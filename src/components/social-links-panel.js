@@ -5,7 +5,7 @@ class SocialLinksPanel extends React.Component {
 
   render() {
     return (
-      <div className={`socialLinksPanel ${this.props.showLinks && 'active'}`}>
+      <div className={`socialLinksPanel ${this.props.displaySocialLinksPanel && 'active'}`}>
       	<div className="inner">
       		<a onClick={this.props.toggleSocialLinks} className="closeBtn"></a>
 
