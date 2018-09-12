@@ -4,10 +4,6 @@ import Icon from './icon'
 import portrait from '../assets/images/portrait-jw.jpg'
 
 class Sidebar extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <aside id="sidebar" className={this.props.isExpanded ? 'expanded' : 'default'}>
@@ -18,19 +14,6 @@ class Sidebar extends React.Component {
         )}
 
         <a className="contact" href="mailto:josh@joshwilkerson.com">Contact</a>
-
-        <button
-          onClick={this.props.toggleSidebar}
-          style={{
-            position: 'absolute',
-            top: 'calc(100vh - 30px)',
-            left: '20px',
-            zIndex: '1000',
-            fontSize: '10px'
-          }}
-        >
-          Toggle Sidebar
-        </button>
 
         <div className="socialLinks">
           <a href="https://github.com/joshwilkerson">

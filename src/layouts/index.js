@@ -10,17 +10,27 @@ class Template extends React.Component {
   constructor(props){
     super(props)
 
-    this.toggleSidebar = this.toggleSidebar.bind(this)
+    this.expandSidebar = this.expandSidebar.bind(this)
+    this.compressSidebar = this.compressSidebar.bind(this)
 
     this.state = {
       sidebarExpanded: false
     }
   }
 
-  toggleSidebar() {
+
+  expandSidebar() {
     this.setState((prevState) => {
       return {
-        sidebarExpanded: !prevState.sidebarExpanded
+        sidebarExpanded: true
+      }
+    })
+  }
+
+  compressSidebar() {
+    this.setState((prevState) => {
+      return {
+        sidebarExpanded: false
       }
     })
   }
@@ -28,6 +38,8 @@ class Template extends React.Component {
   render() {
     const { children, location, data } = this.props
     const toggleSidebar = { toggleSidebar: this.toggleSidebar }
+    const expandSidebar = { expandSidebar: this.expandSidebar }
+    const compressSidebar = { compressSidebar: this.compressSidebar }
 
     return (
       <div>
@@ -37,9 +49,8 @@ class Template extends React.Component {
           <Sidebar
             currentRoute={location.pathname}
             isExpanded={this.state.sidebarExpanded}
-            toggleSidebar={this.toggleSidebar}
           />
-        {children({...this.props, ...toggleSidebar})}
+        {children({...this.props, ...toggleSidebar, ...expandSidebar, ...compressSidebar})}
         </div>
       </div>
     )

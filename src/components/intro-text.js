@@ -7,6 +7,13 @@ class IntroText extends React.Component {
     super(props)
   }
 
+  componentWillReceiveProps(){
+    if(this.props.isVisible) {
+      console.log('expand sidebar')
+    } else {
+      console.log('compress sidebar')
+    }
+  }
 
   render() {
     return (
@@ -22,15 +29,13 @@ class IntroText extends React.Component {
 
         <a href={resume} className="btn" target="_blank">Download Resume</a>
 
-        <div style={{display: 'block'}}>
-          <button
-            onClick={this.props.toggleSidebar}
-            style={{
-              fontSize: '11px',
-              marginTop: '20px'
-            }}
-          >
-            Toggle Sidebar
+        <div style={{display: 'block', marginTop: '20px', fontSize: '11px'}}>
+          <button onClick={this.props.expandSidebar}>
+            Expand Sidebar
+          </button>
+
+          <button onClick={this.props.compressSidebar}>
+            Compress Sidebar
           </button>
         </div>
       </div>

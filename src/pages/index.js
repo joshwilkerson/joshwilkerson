@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import TrackVisibility from 'react-on-screen';
 import Icon from '../components/icon'
 import SocialLinksPanel from '../components/social-links-panel'
 import Thumbnails from '../components/thumbnails.js'
@@ -40,13 +41,16 @@ class Home extends React.Component {
         </Helmet>
 
         <section id="intro">
-          <IntroText
-            toggleSocialLinks={this.toggleSocialLinks}
-            toggleSidebar={this.props.toggleSidebar}
-          />
+          <TrackVisibility>
+            <IntroText
+              toggleSocialLinks={this.toggleSocialLinks}
+              expandSidebar={this.props.expandSidebar}
+              compressSidebar={this.props.compressSidebar}
+            />
+        </TrackVisibility>
 
           <SocialLinksPanel
-            displaySocialLinksPanel={this.state.displaySocialLinksPanel} 
+            displaySocialLinksPanel={this.state.displaySocialLinksPanel}
             toggleSocialLinks={this.toggleSocialLinks}
           />
         </section>
