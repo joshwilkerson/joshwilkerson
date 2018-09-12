@@ -13,7 +13,7 @@ class Template extends React.Component {
     this.toggleSidebar = this.toggleSidebar.bind(this)
 
     this.state = {
-      sidebarExpanded: true
+      sidebarExpanded: false
     }
   }
 
