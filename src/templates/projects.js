@@ -1,20 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import BackLink from '../components/back-link'
+import Link from 'gatsby-link'
+import Icon from '../components/icon'
 
 class ProjectsTemplate extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount() {
-    this.setState(() => {
-      return {
-        sidebarExpanded: false
-      }
-    })
+    this.props.compressSidebar()
   }
-
 
   render() {
     const project = this.props.data.markdownRemark
@@ -26,10 +19,17 @@ class ProjectsTemplate extends React.Component {
         <Helmet title={`${project.frontmatter.title} | ${siteTitle}`} />
 
         <section className="details">
-          <BackLink />
+          <div>
+            <Link to="/#featured" className="backBtn">
+              <Icon name="chevron-left" /> Back
+            </Link>
+          </div>
+
           <h1>{project.frontmatter.title}</h1>
+
           <div dangerouslySetInnerHTML={{ __html: project.html }} />
-          {url && <a href={url} className="btn">View Site</a>}
+
+        {url && <a href={url} className="btn">View Site</a>}
         </section>
       </div>
     )
