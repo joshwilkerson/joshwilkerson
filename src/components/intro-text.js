@@ -3,15 +3,14 @@ import ScrollLink from 'react-scrollchor'
 import resume from '../assets/josh-wilkerson-resume.pdf'
 
 class IntroText extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
-  componentWillReceiveProps(){
-    if(this.props.isVisible) {
-      console.log('expand sidebar')
-    } else {
-      console.log('compress sidebar')
+  componentDidUpdate(prevProps) {
+    if(prevProps.isVisible != this.props.isVisible) {
+      if(!this.props.isVisible) {
+        this.props.compressSidebar()
+      } else {
+        this.props.expandSidebar()
+      }
     }
   }
 
@@ -28,16 +27,6 @@ class IntroText extends React.Component {
         <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.props.toggleSocialLinks}>social channels</a>.</p>
 
         <a href={resume} className="btn" target="_blank">Download Resume</a>
-
-        <div style={{display: 'block', marginTop: '20px', fontSize: '11px'}}>
-          <button onClick={this.props.expandSidebar}>
-            Expand Sidebar
-          </button>
-
-          <button onClick={this.props.compressSidebar}>
-            Compress Sidebar
-          </button>
-        </div>
       </div>
     )
   }
