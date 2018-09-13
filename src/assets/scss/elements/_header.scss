@@ -1,9 +1,9 @@
 header {
   display: block;
   position: fixed;
-  top:0;
-  left:0;
-  width: 100%;
+  top: 0;
+  right: 0;
+  width: $contentWidth;
   z-index: 200;
 
   nav {
