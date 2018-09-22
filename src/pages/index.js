@@ -46,7 +46,6 @@ class Home extends React.Component {
           <div className="intro--content">
             <TrackVisibility partialVisibility>
               <IntroTitle
-                toggleSocialLinks={this.toggleSocialLinks}
                 expandSidebar={this.props.expandSidebar}
                 compressSidebar={this.props.compressSidebar}
               />
@@ -54,7 +53,7 @@ class Home extends React.Component {
 
             <p>Hello! I'm Josh Wilkerson, a front-end web developer from Franklin, TN. Using over a decade of experience in art and graphic design combined with my technical expertise in modern web development, I create elegant, user-friendly web experiences that are as functional as they are beautiful.</p>
 
-            <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.props.toggleSocialLinks}>social channels</a>.</p>
+            <p>Take a look at my <ScrollLink to="#featured" animate={{duration: 200}}>featured work</ScrollLink> below or check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
 
             <a href={resume} className="btn" target="_blank">Download Resume</a>
           </div>
