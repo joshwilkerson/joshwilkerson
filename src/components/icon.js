@@ -1,14 +1,11 @@
 import React from 'react'
 
-class Icon extends React.Component {
-  
-  render() {
-    return (
-      <svg className={`icon icon-${this.props.name}`}>
-        <use xlinkHref={`#icon-${this.props.name}`} fill={this.props.fill}/>
-      </svg>
-    )
-  }
+const Icon = (props) => {
+  return (
+    <svg className={`icon icon-${props.name}`}>
+      <use xlinkHref={`#icon-${props.name}`} fill={props.fill}/>
+    </svg>
+  )
 }
 
 export default Icon
