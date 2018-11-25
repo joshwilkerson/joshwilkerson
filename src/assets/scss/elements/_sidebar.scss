@@ -154,10 +154,12 @@
     width: 100%;
   	height: $sidebarFeaturedFixedHeight;
     border-bottom:1px solid transparent;
+    position: absolute;
 
     @include breakpoint(narrow) {
       width: $sidebarFeaturedWidth;
       height: 101vh;
+      position: fixed;
     }
 
     .bg {
