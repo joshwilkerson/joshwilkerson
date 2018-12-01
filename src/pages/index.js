@@ -46,7 +46,7 @@ class Home extends React.Component {
 
             <p>Hello! I'm Josh Wilkerson, a front-end web developer from Franklin, TN. Using over a decade of experience in art and graphic design combined with my technical expertise in modern web development, I create elegant, user-friendly web experiences that are as functional as they are beautiful.</p>
 
-            <p>Currently, I'm a front-end developer for the fantatic folks at <a href="https://planningcenter.com" target="_blank">Planning Center</a>. If you really want to know more about me, check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
+            <p>Currently, I'm a front-end developer for the fantatic folks at <a href="https://planning.center" target="_blank">Planning Center</a>. If you really want to know more about me, check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
           </div>
 
           <SocialLinksPanel
