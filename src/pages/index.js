@@ -35,6 +35,7 @@ class Home extends React.Component {
         <Helmet>
           <title>{siteTitle}</title>
           <meta name="description" content={siteDescription} />
+          <meta name="google-site-verification" content="pU8IIkjDUPUrqoM5qYcAUc2dE6cjB-1uFTAOZ0hEEL8" />
         </Helmet>
 
         <section id="intro">
