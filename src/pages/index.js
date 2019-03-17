@@ -35,6 +35,7 @@ class Home extends React.Component {
         <Helmet>
           <title>{siteTitle}</title>
           <meta name="description" content={siteDescription} />
+          <meta name="google-site-verification" content="pU8IIkjDUPUrqoM5qYcAUc2dE6cjB-1uFTAOZ0hEEL8" />
         </Helmet>
 
         <section id="intro">
@@ -46,9 +47,8 @@ class Home extends React.Component {
 
             <p>Hello! I'm Josh Wilkerson, a front-end web developer from Franklin, TN. Using over a decade of experience in art and graphic design combined with my technical expertise in modern web development, I create elegant, user-friendly web experiences that are as functional as they are beautiful.</p>
 
-            <p>Take a look at my <Link to="/featured-work">featured work</Link> below or check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
+              <p>Currently, I'm a front-end developer for the fantastic folks at <a href="https://planning.center" target="_blank">Planning Center</a>. If you really want to know more about me, check out my <a onClick={this.toggleSocialLinks}>social channels</a>.</p>
 
-            <a href={resume} className="btn" target="_blank">Download Resume</a>
           </div>
 
           <SocialLinksPanel
