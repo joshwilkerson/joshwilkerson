@@ -5,7 +5,7 @@ import portrait from '../assets/images/portrait-jw.jpg'
 
 const Sidebar = (props) => {
   return (
-    <aside id="sidebar" className={props.isExpanded ? 'expanded' : 'default'}>
+    <aside id="sidebar" className={props.currentRoute === "/" ? 'expanded' : 'default'}>
       {props.currentRoute === "/" ? (
         <h2 className="altTitle">Josh Wilkerson</h2>
       ) : (

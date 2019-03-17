@@ -9,31 +9,8 @@ import '../assets/scss/compile.scss'
 class Template extends React.Component {
   constructor(props){
     super(props)
-
-    this.expandSidebar = this.expandSidebar.bind(this)
-    this.compressSidebar = this.compressSidebar.bind(this)
-
-    this.state = {
-      sidebarExpanded: true
-    }
   }
 
-
-  expandSidebar() {
-    this.setState((prevState) => {
-      return {
-        sidebarExpanded: true
-      }
-    })
-  }
-
-  compressSidebar() {
-    this.setState((prevState) => {
-      return {
-        sidebarExpanded: false
-      }
-    })
-  }
 
   render() {
     const { children, location, data } = this.props
@@ -45,11 +22,8 @@ class Template extends React.Component {
         <IconSprite />
         <Header currentRoute={location.pathname} />
         <div className="page">
-          <Sidebar
-            currentRoute={location.pathname}
-            isExpanded={this.state.sidebarExpanded}
-          />
-          {children({...this.props, ...expandSidebar, ...compressSidebar})}
+          <Sidebar currentRoute={location.pathname} />
+          {children({...this.props})}
         </div>
       </div>
     )
